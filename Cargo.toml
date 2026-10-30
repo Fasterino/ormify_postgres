@@ -1,13 +1,13 @@
 [package]
 name = "ormify_postgres"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2024"
 
 description = "Realization of Postgres for ormify ORM Framework for your PostgreSQL database."
 license = "MIT"
 
-repository = "https://github.com/Fasterino/ormify"
-homepage = "https://github.com/Fasterino/ormify"
+repository = "https://github.com/Fasterino/ormify_postgres"
+homepage = "https://github.com/Fasterino/ormify_postgres"
 readme = "README.md"
 
 [features]
