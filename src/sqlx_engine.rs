@@ -31,7 +31,7 @@ fn bind(
     arg: Value,
 ) -> sqlx::query::Query<'_, sqlx::Postgres, sqlx::postgres::PgArguments> {
     match arg {
-        Value::Null => req.bind(None::<i32>),
+        Value::Null => req.bind(None::<i32>), // it's not correct, but it's working solution for sqlx
         Value::Bool(x) => req.bind(x),
         Value::I16(x) => req.bind(x),
         Value::I32(x) => req.bind(x),
@@ -106,8 +106,8 @@ impl Driver for SqlxEngine {
                         "INT2" => <Option<i16> as FieldType>::to_value(try_get(&row, index)?),
                         "INT4" => <Option<i32> as FieldType>::to_value(try_get(&row, index)?),
                         "INT8" => <Option<i64> as FieldType>::to_value(try_get(&row, index)?),
-                        "FLOAT4" => <Option<i32> as FieldType>::to_value(try_get(&row, index)?),
-                        "FLOAT8" => <Option<i64> as FieldType>::to_value(try_get(&row, index)?),
+                        "FLOAT4" => <Option<f32> as FieldType>::to_value(try_get(&row, index)?),
+                        "FLOAT8" => <Option<f64> as FieldType>::to_value(try_get(&row, index)?),
                         "UUID" => {
                             FieldType::to_value(Option::<_>::map(try_get(&row, index)?, Uuid))
                         }

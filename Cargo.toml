@@ -1,6 +1,6 @@
 [package]
 name = "ormify_postgres"
-version = "1.0.2"
+version = "1.0.3"
 edition = "2024"
 
 description = "Realization of Postgres for ormify ORM Framework for your PostgreSQL database."

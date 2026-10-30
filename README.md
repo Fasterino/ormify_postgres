@@ -31,14 +31,14 @@ Choose one driver/runtime combination:
 ```toml
 [dependencies]
 ormify = { version = "1.0.1", features = ["full"] }
-ormify_postgres = { version = "1.0.2", features = ["tokio_postgres_engine"] }
+ormify_postgres = { version = "1.0.3", features = ["tokio_postgres_engine"] }
 ```
 
 Or select a SQLx runtime:
 
 ```toml
 ormify = { version = "1.0.1", features = ["full"] }
-ormify_postgres = { version = "1.0.2", features = ["tokio_sqlx_engine"] }
+ormify_postgres = { version = "1.0.3", features = ["tokio_sqlx_engine"] }
 # alternatively use `async_std_sqlx_engine` with an async-std SQLx runtime
 ```
 

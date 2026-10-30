@@ -70,6 +70,10 @@ impl Language for PostgresSql {
                 condition,
             } => {
                 let mut fields: Vec<_> = entry.into_iter().collect();
+                if fields.is_empty() {
+                    return Ok(Vec::new());
+                }
+
                 fields.sort_by(|(left, _), (right, _)| left.cmp(right));
                 let (keys, mut args): (Vec<_>, Vec<_>) = fields.into_iter().unzip();
                 let assignments = keys
@@ -252,7 +256,7 @@ fn compile_condition(condition: ormify::Condition, args: &mut ArgsWithOffset) ->
             }
         }
         ormify::Condition::Like(field, pattern) => {
-            format!("{} LIKE {:?}", quote_ident(&field), pattern)
+            comparison("LIKE", &field, Value::VarChar(pattern), args)
         }
         ormify::Condition::Eq(field, value) => comparison("=", &field, value, args),
         ormify::Condition::Neq(field, value) => comparison("<>", &field, value, args),
