@@ -1,0 +1,13 @@
+[package]
+name = "ormify_postgres_example"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+ormify = { version = "1.0.0", features = ["full", "bench"] }
+ormify_postgres = { path = "../../", features = ["tokio_postgres_engine"] }
+
+# futures = "0.3.32"
+serde = { version = "1.0.228", features = ["derive"] }
+dotenv = "0.15.0"
+tokio = { version = "1.54.1", features = ["full"] }
