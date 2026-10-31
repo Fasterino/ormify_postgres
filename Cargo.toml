@@ -1,6 +1,6 @@
 [package]
 name = "ormify_postgres"
-version = "1.0.3"
+version = "1.0.4"
 edition = "2024"
 
 description = "Realization of Postgres for ormify ORM Framework for your PostgreSQL database."
@@ -20,9 +20,8 @@ connect_args = ["serde"]
 _sqlx_engine = ["sqlx", "connect_args"]
 
 [dependencies]
-ormify = { version = "1.0.1", features = ["orm_engine"] }
+ormify = { version = "1.0.2", features = ["orm_engine"] }
 sqlx = { version = "0.9.0", optional = true, features = [
-    "runtime-async-std",
     "postgres",
     "uuid",
     "chrono",
@@ -37,7 +36,7 @@ tokio-stream = { version = "0.1.19", optional = true }
 tokio = { version = "1.53.3", optional = true }
 
 [dev-dependencies]
-ormify = { version = "1.0.1", features = ["orm_engine", "proc_macro"] }
+ormify = { version = "1.0.2", features = ["orm_engine", "proc_macro"] }
 tokio = { version = "1.53.3", features = ["full"] }
 serde = { version = "1.0.229", features = ["derive"] }
 
