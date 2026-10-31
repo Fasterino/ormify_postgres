@@ -30,16 +30,17 @@ Choose one driver/runtime combination:
 
 ```toml
 [dependencies]
-ormify = { version = "1.0.2", features = ["full"] }
-ormify_postgres = { version = "1.0.4", features = ["tokio_postgres_engine"] }
+ormify = { version = "1.0.3", features = ["full"] }
+ormify_postgres = { version = "1.0.5", features = ["tokio_postgres_engine"] }
 ```
 
 Or select a SQLx runtime:
 
 ```toml
-ormify = { version = "1.0.2", features = ["full"] }
-ormify_postgres = { version = "1.0.4", features = ["tokio_sqlx_engine"] }
+ormify = { version = "1.0.3", features = ["full"] }
+ormify_postgres = { version = "1.0.5", features = ["tokio_sqlx_engine"] }
 # alternatively use `async_std_sqlx_engine` with an async-std SQLx runtime
+# or `smol_sqlx_engine` with an Smol SQLx runtime
 ```
 
 ### Feature flags
@@ -49,6 +50,7 @@ ormify_postgres = { version = "1.0.4", features = ["tokio_sqlx_engine"] }
 | `tokio_postgres_engine` | Enables `TokioEngine`; caller must run a Tokio runtime.                                           |
 | `tokio_sqlx_engine`     | Enables `SqlxEngine` using SQLx's Tokio runtime.                                                  |
 | `async_std_sqlx_engine` | Enables `SqlxEngine` using SQLx's async-std runtime.                                              |
+| `smol_sqlx_engine`      | Enables `SqlxEngine` using SQLx's Smol runtime.                                                   |
 | `connect_args`          | Exposes `ConnectArgs` and `PostgresConnectArgs`. This feature is included in all engine features. |
 
 The crate has no default driver feature; enable the one you need. Avoid enabling multiple SQLx runtime features in the same build.
